@@ -1,4 +1,7 @@
-const Product = ({ id, image, title, price, description, onAddToCart }) => {
+import store from "../store/shoppingCartContext";
+
+const Product = ({ id, image, title, price, description }) => {
+  const { handleAddItemToCart } = store();
   return (
     <div className="card w-96 bg-base-100 shadow-xl hover:scale-105 hover:transition">
       <figure>
@@ -15,7 +18,7 @@ const Product = ({ id, image, title, price, description, onAddToCart }) => {
         <p className="pb-3 text-slate-400">{description}</p>
         <div className="card-actions justify-end">
           <button
-            onClick={() => onAddToCart(id)}
+            onClick={() => handleAddItemToCart(id)}
             className="btn bg-fuchsia-800 text-slate-200 hover:text-slate-900 hover:bg-green-400">
             Buy Now
           </button>

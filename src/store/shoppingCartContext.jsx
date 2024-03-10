@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { DUMMY_PRODUCTS } from "../dummy-products.js";
 
 const CartContext = createContext();
 
@@ -70,11 +71,12 @@ export function ParentContext({ children }) {
     handleAddItemToCart,
     handleUpdateCartItemQuantity,
     setShoppingCart,
+    DUMMY_PRODUCTS,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 
-const store = () => useContext(IntialContext);
+const store = () => useContext(CartContext);
 
 export default store;

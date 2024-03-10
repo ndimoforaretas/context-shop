@@ -1,7 +1,9 @@
-import { DUMMY_PRODUCTS } from "../dummy-products.js";
 import Product from "./Product.jsx";
+import store from "../store/shoppingCartContext.jsx";
 
-export default function Shop({ onAddItemToCart }) {
+export default function Shop() {
+  const { DUMMY_PRODUCTS } = store();
+
   return (
     <section className="flex flex-col items-center gap-20">
       <h1 className="text-fuchsia-800 text-4xl font-bold text-center">
@@ -11,7 +13,7 @@ export default function Shop({ onAddItemToCart }) {
       <ul className="container mx-auto gap-12 flex flex-wrap justify-around ">
         {DUMMY_PRODUCTS.map((product) => (
           <li key={product.id}>
-            <Product {...product} onAddToCart={onAddItemToCart} />
+            <Product {...product} />
           </li>
         ))}
       </ul>

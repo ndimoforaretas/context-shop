@@ -1,4 +1,9 @@
-const Cart = ({ items, onUpdateItemQuantity }) => {
+import store from "../store/shoppingCartContext.jsx";
+
+const Cart = () => {
+  const { shoppingCart, handleUpdateCartItemQuantity } = store();
+
+  const { items } = shoppingCart;
   const totalPrice = items.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
@@ -26,13 +31,13 @@ const Cart = ({ items, onUpdateItemQuantity }) => {
                 <div className="flex gap-2 items-center">
                   <button
                     className="btn btn-sm bg-fuchsia-800 text-slate-100 text-lg font-bold hover:text-slate-900 hover:bg-fuchsia-400"
-                    onClick={() => onUpdateItemQuantity(item.id, -1)}>
+                    onClick={() => handleUpdateCartItemQuantity(item.id, -1)}>
                     -
                   </button>
                   <span className="text-lg">{item.quantity}</span>
                   <button
                     className="btn btn-sm text-slate-100 bg-fuchsia-800 text-lg font-bold hover:text-slate-900 hover:bg-green-400"
-                    onClick={() => onUpdateItemQuantity(item.id, 1)}>
+                    onClick={() => handleUpdateCartItemQuantity(item.id, 1)}>
                     +
                   </button>
                 </div>
