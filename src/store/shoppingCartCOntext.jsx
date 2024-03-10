@@ -1,10 +1,8 @@
-import { useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-import Header from "./components/Header.jsx";
-import Shop from "./components/Shop.jsx";
-import { DUMMY_PRODUCTS } from "./dummy-products.js";
+const CartContext = createContext();
 
-function App() {
+export function ParentContext({ children }) {
   // Shopping cart state
   const [shoppingCart, setShoppingCart] = useState({
     items: [],
@@ -67,15 +65,16 @@ function App() {
     });
   }
 
-  return (
-    <div className="bg-fuchsia-100">
-      <Header
-        cart={shoppingCart}
-        onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
-      />
-      <Shop onAddItemToCart={handleAddItemToCart} />
-    </div>
-  );
+  const value = {
+    shoppingCart,
+    handleAddItemToCart,
+    handleUpdateCartItemQuantity,
+    setShoppingCart,
+  };
+
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 
-export default App;
+const store = () => useContext(IntialContext);
+
+export default store;

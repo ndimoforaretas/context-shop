@@ -1,4 +1,4 @@
-export default function Cart({ items, onUpdateItemQuantity }) {
+const Cart = ({ items, onUpdateItemQuantity }) => {
   const totalPrice = items.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
@@ -49,4 +49,6 @@ export default function Cart({ items, onUpdateItemQuantity }) {
       </div>
     </div>
   );
-}
+};
+
+export default Cart;
