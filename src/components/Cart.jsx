@@ -1,4 +1,4 @@
-import store from "../store/shoppingCartContext.jsx";
+import store from "../store/ShoppingCartContext.jsx";
 
 const Cart = () => {
   const { shoppingCart, handleUpdateCartItemQuantity } = store();

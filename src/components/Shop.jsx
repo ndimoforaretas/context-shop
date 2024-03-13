@@ -1,5 +1,5 @@
 import Product from "./Product.jsx";
-import store from "../store/shoppingCartContext.jsx";
+import store from "../store/ShoppingCartContext.jsx";
 
 export default function Shop() {
   const { DUMMY_PRODUCTS } = store();

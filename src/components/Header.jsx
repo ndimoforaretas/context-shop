@@ -1,6 +1,6 @@
 import logo from "../assets/logo.svg";
 import Cart from "./Cart.jsx";
-import store from "../store/shoppingCartContext.jsx";
+import store from "../store/ShoppingCartContext.jsx";
 
 const Header = () => {
   const { shoppingCart } = store();
@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <>
-      <nav className="navbar py-3 lg:px-20 mb-10 bg-fuchsia-800 sticky top-0 z-50 bg-ta">
+      <nav className="navbar py-3 lg:px-20 mb-10 bg-green-800 sticky top-0 z-50 bg-ta">
         <header className="lg:flex-row lg:gap-8 justify-between w-full flex-col">
           <div className="flex gap-3 items-center">
             <img

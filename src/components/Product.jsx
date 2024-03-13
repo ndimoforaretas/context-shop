@@ -1,4 +1,4 @@
-import store from "../store/shoppingCartContext";
+import store from "../store/ShoppingCartContext";
 
 const Product = ({ id, image, title, price, description }) => {
   const { handleAddItemToCart } = store();
